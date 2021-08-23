@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    # base.view_partner_form
+    <record id="view_customer_form_inherited" model="ir.ui.view">
+        <field name="name">view.customer.form.inherited</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="category_id" position="after">
+                <field name="sales_score"/>
+            </field>
+        </field>
+    </record>
+</odoo>
