@@ -16,7 +16,8 @@
     ],
     'data': [
         "views/product_view.xml",
-        "views/customer_view.xml"
+        "views/customer_view.xml",
+        "views/sale_order_view.xml"
     ],
     'demo': [],
     'qweb': [],
