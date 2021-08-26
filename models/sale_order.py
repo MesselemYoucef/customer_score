@@ -24,12 +24,11 @@ class TotalScore(models.Model):
 
     @api.depends('order_line.sub_ttl_score')
     def _calculate_total_score(self):
-        ttl_score = 0
-        print(self.order_line)
-        for line in self.order_line.sub_ttl_score:
-            ttl_score += line
-        print(ttl_score)
-
+        for record in self:
+            ttl_score = 0
+            for line in record.order_line:
+                ttl_score += line.sub_ttl_score
+            record.total_score = ttl_score
 
 
 

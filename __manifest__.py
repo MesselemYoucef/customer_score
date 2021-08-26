@@ -12,12 +12,14 @@
     'depends': [
         'base',
         'sale',
-        'product'
+        'product',
+        'account'
     ],
     'data': [
         "views/product_view.xml",
         "views/customer_view.xml",
-        "views/sale_order_view.xml"
+        "views/sale_order_view.xml",
+        'views/invoice_view.xml'
     ],
     'demo': [],
     'qweb': [],
