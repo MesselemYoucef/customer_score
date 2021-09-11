@@ -24,6 +24,7 @@ class TotalScore(models.Model):
 
     @api.depends('order_line.sub_ttl_score')
     def _calculate_total_score(self):
+        """Calculates the total of all product scores mentioned in the sales form"""
         for record in self:
             ttl_score = 0
             for line in record.order_line:
