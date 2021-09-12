@@ -9,11 +9,11 @@ class SaleOrder(models.Model):
 
     sub_ttl_score = fields.Integer(string="Sub Score TTL",  compute="_calculate_sub_total")
 
-    @api.depends('product_uom_qty')
+    @api.depends('product_uom_qty', 'product_score_template')
     def _calculate_sub_total(self):
         """Calculate the subtotal of the score"""
         for record in self:
-            subtotal = self.product_score_template * self.product_uom_qty
+            subtotal = record.product_score_template * record.product_uom_qty
             record. sub_ttl_score = subtotal
 
 
