@@ -6,8 +6,8 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='order_line']/tree/field[@name='price_subtotal']" position="before">
-                <field name="product_score_template" optional="show"/>
-                <field name="sub_ttl_score" optional="show"/>
+                <field name="product_score_template" optional="hide"/>
+                <field name="sub_ttl_score" optional="hide"/>
             </xpath>
             <xpath expr="//field[@name='amount_total']" position="after">
                 <field name="total_score"/>

@@ -5,4 +5,13 @@ from odoo import api, fields, models
 class CustomerScore(models.Model):
     _inherit = "res.partner"
 
-    sales_score = fields.Integer(string="Sales Score")
+    sales_score = fields.Integer(string="Sales Score", compute="_compute_total_scores")
+
+    def _compute_total_scores(self):
+        """Calculates the total score of a customer from his invoices"""
+        for rec in self:
+            score_count = self.env['account.move'].search([('partner_id', '=', rec.id)])
+            total_score = 0
+            for score in score_count:
+                total_score += score['customer_score']
+            rec.sales_score = total_score
