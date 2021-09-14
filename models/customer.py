@@ -13,5 +13,8 @@ class CustomerScore(models.Model):
             score_count = self.env['account.move'].search([('partner_id', '=', rec.id)])
             total_score = 0
             for score in score_count:
+                name = score['name'].split('/')[0]
+                if name != "RINV":
+                    print(name)
                 total_score += score['customer_score']
             rec.sales_score = total_score
